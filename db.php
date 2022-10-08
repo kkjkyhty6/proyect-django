@@ -7,6 +7,7 @@ class users extendens cACtiverecords{
 
 
 }
+?php
 
 
 return [
