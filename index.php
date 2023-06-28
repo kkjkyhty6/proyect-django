@@ -1,14 +1,29 @@
-?php
-class proyecto1controller extends controller
-{
- public function actionindex()
-$modles => CAactiverecord :models("users") =>find all(),
-$opciones=" requerimeintos "
-$noticaciones =>"no tiene notificaciones" ,
-$cuentas=>"2 disponibles"
-$creditos=>"no tiene"
-$analisis dofa=>"iniciar"
-$calculadora=>"ingrear"
-$this=>render (index (array ( "opciones =>opciones ,"noticaciones" =>notificaciones , 
-"cuentas"=>cuentas , "creditos" =>creditos , "calculadora"=> calculadoora),
-?php
+config/app.php yconfig/app.php y
+        return view('admin.index', compact('admins', 'userProfiles'));
+    }
+
+    public function create()
+    {
+        return view('admin.create');
+    }
+
+    public function store(Request $request)
+    {
+        $admin = Admin::create($request->all());
+
+        return redirect()->route('admin.index');
+    }
+
+    public function edit(Admin $admin)
+    {
+        return view('admin.edit', compact('admin'));
+    }
+
+    public function update(Request $request, Admin $admin)
+    {
+        $admin->update($request->all());
+
+        return redirect()->route('admin.index');
+    }
+
+    public function destroy(Admin $admin)
